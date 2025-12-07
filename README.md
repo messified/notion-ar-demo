@@ -1,27 +1,60 @@
-# NotionArDemo
+<p align="center">
+  <img src="./notion_logo.png" alt="Notion AR Logo" width="180" />
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+<h1 align="center">Notion AR Demo</h1>
 
-## Development server
+<p align="center">
+  A mobile-optimized Angular 17+ prototype demonstrating transparent AR overlays
+  on real sheet music using the device camera — a foundation for the full
+  Notion AR experience.
+</p>
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+---
 
-## Code scaffolding
+## 📌 Overview
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+This is a **frontend-only Angular application** (no backend, no database) that simulates:
 
-## Build
+- Live **camera preview** through the phone  
+- **Transparent, perfectly aligned AR overlays** on sheet music  
+- Dynamic **note label highlighting** to simulate playback  
+- A minimal, clean control bar for **tempo** and **play/pause**  
+- A structure ready to evolve into **WebXR**, **machine vision**, or **glasses-based AR**
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+The goal is to prototype the UX of the future **Notion AR** app — where a user points their phone or AR glasses at sheet music and receives real-time overlays, guided notation, and audio playback.
 
-## Running unit tests
+---
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🎥 Demo Features
 
-## Running end-to-end tests
+### ✔ Camera Layer  
+Uses `navigator.mediaDevices.getUserMedia()` to display the rear camera feed.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### ✔ Overlay Layer  
+Transparent labels positioned relative to the staff:
 
-## Further help
+- Note names above real notes  
+- Highlight animation moving through notes  
+- Subtle staff guides (for demo purposes)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### ✔ Playback Simulation  
+A lightweight timing loop that cycles through demo notes at the selected tempo.
+
+### ✔ Standalone Angular Architecture  
+Built using Angular 17+ standalone components — no `NgModule` required.
+
+---
+
+## 🚀 Getting Started
+
+Make sure you have:
+
+- Node.js 18+  
+- Angular CLI 17+  
+
+### Clone the repository
+
+```bash
+git clone <your-repo-url>
+cd notion-ar-demo

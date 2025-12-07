@@ -1,0 +1,173 @@
+.ar-shell {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.camera-layer {
+  position: relative;
+  flex: 1 1 auto;
+  overflow: hidden;
+
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1); // optional: mirror like selfie; remove if you prefer
+  }
+
+  .camera-error {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    text-align: center;
+    color: #f9f9ff;
+    background: radial-gradient(
+      circle at top,
+      rgba(120, 90, 255, 0.4),
+      rgba(0, 0, 0, 0.85)
+    );
+
+    &__hint {
+      margin-top: 0.75rem;
+      font-size: 0.8rem;
+      opacity: 0.8;
+    }
+  }
+}
+
+.overlay-layer {
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+  display: block;
+  color: #f7f3ff;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'SF Pro Text',
+    sans-serif;
+}
+
+/* Staff lines centered vertically in upper half */
+.staff {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 35%;
+  height: 15%;
+
+  .staff-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+
+    &:nth-child(1) {
+      top: 0%;
+    }
+    &:nth-child(2) {
+      top: 25%;
+    }
+    &:nth-child(3) {
+      top: 50%;
+    }
+    &:nth-child(4) {
+      top: 75%;
+    }
+    &:nth-child(5) {
+      top: 100%;
+    }
+  }
+}
+
+/* Transparent note labels */
+.note-label {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  padding: 0.1rem 0.35rem;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  background: rgba(120, 90, 255, 0.16);
+  color: #f9f7ff;
+  border: 1px solid rgba(180, 155, 255, 0.6);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(160, 130, 255, 0.5);
+  transition: transform 150ms ease, box-shadow 150ms ease,
+    background 150ms ease, border-color 150ms ease, opacity 150ms ease;
+  opacity: 0.9;
+
+  &--active {
+    background: rgba(190, 160, 255, 0.3);
+    border-color: rgba(255, 255, 255, 0.9);
+    box-shadow:
+      0 0 20px rgba(210, 180, 255, 0.9),
+      0 0 35px rgba(120, 90, 255, 0.9);
+    transform: translate(-50%, -110%) scale(1.08);
+  }
+}
+
+.controls {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem 1.25rem;
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.95),
+    rgba(0, 0, 0, 0.3)
+  );
+  backdrop-filter: blur(10px);
+
+  button {
+    min-width: 2.4rem;
+    min-height: 2.4rem;
+    border-radius: 999px;
+    border: none;
+    background: rgba(120, 90, 255, 0.25);
+    color: #f9f9ff;
+    font-size: 1rem;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.25rem 0.6rem;
+    font-weight: 500;
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+
+  .tempo-label {
+    min-width: 4.2rem;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #ddd7ff;
+  }
+
+  .play-btn {
+    padding-inline: 1.4rem;
+    background: rgba(180, 145, 255, 0.6);
+  }
+}
+
+/* Mobile-first; tweak for larger screens */
+@media (min-width: 768px) {
+  .ar-shell {
+    max-width: 480px;
+    margin: 0 auto;
+    border-radius: 1rem;
+    overflow: hidden;
+  }
+}

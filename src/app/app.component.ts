@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
+import { MusicArViewComponent } from './components/music-ar-view/music-ar-view.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  imports: [MusicArViewComponent],
+  template: `
+    <app-music-ar-view></app-music-ar-view>
+  `,
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'notion-ar-demo';
-}
+export class AppComponent {}

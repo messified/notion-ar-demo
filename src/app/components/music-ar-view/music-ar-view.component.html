@@ -1,0 +1,46 @@
+<div class="ar-shell">
+  <!-- Camera layer -->
+  <div class="camera-layer">
+    <video #video playsinline muted></video>
+    <div *ngIf="cameraError" class="camera-error">
+      {{ cameraError }}
+      <div class="camera-error__hint">
+        (For demo, imagine the sheet music under the phone here.)
+      </div>
+    </div>
+  </div>
+
+  <!-- Overlay layer (transparent, aligned over video) -->
+  <div #overlay class="overlay-layer">
+    <!-- Staff guide (optional, just a subtle reference) -->
+    <div class="staff">
+      <div class="staff-line" *ngFor="let line of [1,2,3,4,5]"></div>
+    </div>
+
+    <!-- Note labels -->
+    <div
+      *ngFor="let note of notes; trackBy: trackByNoteId"
+      class="note-label"
+      [style.left.%]="note.x * 100"
+      [style.top.%]="note.y * 100"
+      [class.note-label--active]="note.id === currentNoteId"
+    >
+      {{ note.label }}
+    </div>
+  </div>
+
+  <!-- Bottom control bar -->
+  <div class="controls">
+    <button type="button" (click)="changeTempo(-10)">−</button>
+    <span class="tempo-label">{{ tempoBpm }} bpm</span>
+    <button type="button" (click)="changeTempo(10)">+</button>
+
+    <button
+      type="button"
+      class="play-btn"
+      (click)="togglePlayback()"
+    >
+      {{ isPlaying ? 'Pause' : 'Play' }}
+    </button>
+  </div>
+</div>
