@@ -1,5 +1,5 @@
-<p align="center">
-  <img src="./notion_logo.png" alt="Notion AR Logo" width="180" />
+<p align="center" style="border: 1px solid transparent; border-radius: 5px;">
+  <img src="./notion_logo.png" alt="Notion AR Logo" width="180" style="padding: 10px; background: #fff; border-radius: 8px;" />
 </p>
 
 <h1 align="center">Notion AR Demo</h1>
